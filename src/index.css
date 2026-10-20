@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@property --paper {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f7f5f0;
+}
+
+@property --ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #191919;
+}
+
+@property --muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #77746e;
+}
+
+@property --rule {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #dedbd4;
+}
+
+@property --surface {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #fbfaf7;
+}
+
+@property --secondary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #625f59;
+}
+
+@property --underline {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #aaa69e;
+}
+
+:root {
+  color-scheme: light;
+  --paper-light: #f7f5f0;
+  --paper-dark: #191816;
+  --paper: var(--paper-light);
+  --ink-light: #191919;
+  --ink-dark: #f2efe8;
+  --ink: var(--ink-light);
+  --muted-light: #77746e;
+  --muted-dark: #aaa69e;
+  --muted: var(--muted-light);
+  --rule-light: #dedbd4;
+  --rule-dark: #3b3933;
+  --rule: var(--rule-light);
+  --surface-light: #fbfaf7;
+  --surface-dark: #22201c;
+  --surface: var(--surface-light);
+  --secondary-light: #625f59;
+  --secondary-dark: #c5c0b6;
+  --secondary: var(--secondary-light);
+  --underline-light: #aaa69e;
+  --underline-dark: #827e74;
+  --underline: var(--underline-light);
+  transition:
+    --paper 350ms ease,
+    --ink 350ms ease,
+    --muted 350ms ease,
+    --rule 350ms ease,
+    --surface 350ms ease,
+    --secondary 350ms ease,
+    --underline 350ms ease;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-surface: var(--surface);
+  --color-secondary: var(--secondary);
+  --color-underline: var(--underline);
+  --font-editorial: Georgia, "Times New Roman", serif;
+  --container-portfolio: 640px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: var(--paper-dark);
+  --ink: var(--ink-dark);
+  --muted: var(--muted-dark);
+  --rule: var(--rule-dark);
+  --surface: var(--surface-dark);
+  --secondary: var(--secondary-dark);
+  --underline: var(--underline-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    transition: none;
+  }
+}
+
+[data-theme="dark"] img[src*="express/000000"],
+[data-theme="dark"] img[src*="prisma/2D3748"] {
+  filter: invert(1);
+}
+
+@utility arrow-hover {
+  & .arrow-hover-icon {
+    display: inline-block;
+    transition: transform 225ms ease;
+  }
+
+  &:is(:hover, :focus-visible) .arrow-hover-icon {
+    transform: translate(2px, -2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    & .arrow-hover-icon {
+      transition: none;
+    }
+
+    &:is(:hover, :focus-visible) .arrow-hover-icon {
+      transform: none;
+    }
+  }
+}
