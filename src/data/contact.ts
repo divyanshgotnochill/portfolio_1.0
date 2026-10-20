@@ -20,7 +20,7 @@ export const contactLinks: Record<'github' | 'x' | 'linkedin' | 'email', Contact
   },
   linkedin: {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/divyanshsahu188',
+    href: 'https://www.linkedin.com/in/divyansh188',
     placeholder: 'divyansh188',
     external: true,
   },
