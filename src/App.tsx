@@ -20,11 +20,9 @@ function App() {
     <div className="mx-auto min-h-screen w-[calc(100%-40px)] max-w-portfolio bg-paper sm:w-[calc(100%-48px)]">
       <header className="flex min-h-17 items-center justify-between border-b border-rule sm:min-h-19">
         <motion.a
-          className="text-[15px] font-semibold tracking-[-0.045em] no-underline focus-visible:outline-2 focus-visible:outline-offset-4"
+          className="text-[20px] font-semibold tracking-[-0.045em] no-underline focus-visible:outline-2 focus-visible:outline-offset-4"
           href="#top"
           aria-label="Divyansh, home"
-          whileHover={shouldReduceMotion ? undefined : { y: -1 }}
-          whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
         >
           divyansh<span className="text-muted">.</span>
         </motion.a>
