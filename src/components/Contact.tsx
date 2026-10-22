@@ -33,7 +33,7 @@ function Contact() {
           <li key={link.label}>
             <a
               aria-label={`${link.label} placeholder, update contact data before use`}
-              className="arrow-hover inline-flex min-h-11 items-center text-[13px] font-medium text-ink underline decoration-underline underline-offset-4 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-4 sm:min-h-0 motion-reduce:transition-none"
+              className="arrow-hover inline-flex min-h-11 items-center text-[14px] font-medium text-ink underline decoration-underline underline-offset-4 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-4 sm:min-h-0 motion-reduce:transition-none"
               href={link.href}
               rel={link.external ? 'noreferrer' : undefined}
               target={link.external ? '_blank' : undefined}
