@@ -3,7 +3,7 @@ function Footer() {
 
   return (
     <footer className="pt-16 pb-8 sm:pt-24 sm:pb-10">
-      <p className="mx-auto max-w-135 text-center font-editorial text-[clamp(2rem,7vw,3.25rem)] font-bold leading-[1.1] tracking-[-0.045em] text-ink">
+      <p className="mx-auto max-w-170 text-center font-editorial text-[clamp(2rem,7vw,3.25rem)] font-bold leading-[1.1] tracking-[-0.045em] text-ink">
         “I&apos;m always <span>leveling up</span>.”
       </p>
 
