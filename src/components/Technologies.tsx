@@ -6,15 +6,17 @@ import { revealVariants } from '../motion'
 function Technologies() {
   const constraintsRef = useRef<HTMLUListElement>(null)
   const prefersReducedMotion = useReducedMotion()
+  const shouldReduceMotion =
+    prefersReducedMotion ?? window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   return (
     <motion.section
       aria-labelledby="technologies-title"
       className="border-t border-rule py-12 sm:py-14"
       id="technologies"
-      initial={prefersReducedMotion ? false : 'hidden'}
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.18 }}
+      initial={shouldReduceMotion ? false : 'hidden'}
+      whileInView={shouldReduceMotion ? undefined : 'visible'}
+      viewport={{ once: true, amount: 0.2 }}
       variants={revealVariants}
     >
       <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.16em] text-muted">
@@ -34,15 +36,13 @@ function Technologies() {
         {technologies.map((technology) => (
           <motion.li
             className="flex min-w-0 cursor-grab select-none items-center gap-2.5 rounded-md border border-rule bg-surface px-3 py-2.5 text-secondary active:cursor-grabbing"
-            drag={!prefersReducedMotion}
+            drag={!shouldReduceMotion}
             dragConstraints={constraintsRef}
             dragElastic={0.16}
             dragMomentum={false}
             dragSnapToOrigin
             dragTransition={{ bounceStiffness: 380, bounceDamping: 14 }}
             key={technology.name}
-            whileHover={prefersReducedMotion ? undefined : { y: -1 }}
-            whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}
             whileDrag={{ scale: 1.025, rotate: 0.5 }}
           >
             <img

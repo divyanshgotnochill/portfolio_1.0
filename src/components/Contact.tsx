@@ -5,15 +5,17 @@ import { revealVariants } from '../motion'
 
 function Contact() {
   const prefersReducedMotion = useReducedMotion()
+  const shouldReduceMotion =
+    prefersReducedMotion ?? window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   return (
     <motion.section
       aria-labelledby="contact-title"
       className="border-t border-rule py-16 sm:py-20"
       id="contact"
-      initial={prefersReducedMotion ? false : 'hidden'}
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.18 }}
+      initial={shouldReduceMotion ? false : 'hidden'}
+      whileInView={shouldReduceMotion ? undefined : 'visible'}
+      viewport={{ once: true, amount: 0.2 }}
       variants={revealVariants}
     >
       <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.16em] text-muted">
@@ -29,14 +31,12 @@ function Contact() {
       <ul aria-label="Contact links" className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
         {Object.values(contactLinks).map((link) => (
           <li key={link.label}>
-            <motion.a
+            <a
               aria-label={`${link.label} placeholder, update contact data before use`}
               className="arrow-hover inline-flex min-h-11 items-center text-[13px] font-medium text-ink underline decoration-underline underline-offset-4 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-4 sm:min-h-0 motion-reduce:transition-none"
               href={link.href}
               rel={link.external ? 'noreferrer' : undefined}
               target={link.external ? '_blank' : undefined}
-              whileHover={prefersReducedMotion ? undefined : { y: -1 }}
-              whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}
             >
               {link.label}
               <span className="ml-1 text-[10px] font-normal text-muted">({link.placeholder})</span>
@@ -46,7 +46,7 @@ function Contact() {
                   direction="up-right"
                 />
               )}
-            </motion.a>
+            </a>
           </li>
         ))}
       </ul>

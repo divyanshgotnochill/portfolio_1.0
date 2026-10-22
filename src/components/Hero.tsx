@@ -1,20 +1,13 @@
 import { MdArrowOutward } from "react-icons/md";
-import { motion, useReducedMotion } from 'motion/react'
-import { fadeUpVariants, staggerVariants } from '../motion'
 
 function Hero() {
-  const prefersReducedMotion = useReducedMotion()
-
   return (
-    <motion.section
+    <section
       aria-labelledby="hero-title"
       className="py-20 sm:py-24"
       id="hero"
-      initial={prefersReducedMotion ? false : 'hidden'}
-      animate="visible"
-      variants={staggerVariants}
     >
-      <motion.div variants={fadeUpVariants}>
+      <div>
         <div className="flex items-center gap-4 sm:gap-7">
           <img
             alt="Profile photo placeholder; replace with Divyansh Sahu’s photo"
@@ -38,31 +31,27 @@ function Hero() {
             </p>
           </div>
         </div>
-      </motion.div>
+      </div>
 
-      <motion.p className="mt-7 max-w-140 text-[14px] leading-7 text-secondary sm:text-base" variants={fadeUpVariants}>
+      <p className="mt-7 max-w-140 text-[14px] leading-7 text-secondary sm:text-base">
         I build stuff.
-      </motion.p>
+      </p>
 
-      <motion.div className="mt-5 flex flex-wrap items-center gap-x-7 gap-y-4 text-[13px] font-medium" variants={fadeUpVariants}>
-        <motion.a
+      <div className="mt-5 flex flex-wrap items-center gap-x-7 gap-y-4 text-[13px] font-medium">
+        <a
           className="arrow-hover inline-flex min-h-11 items-center underline decoration-underline underline-offset-[5px] transition-colors hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-4 sm:min-h-0 motion-reduce:transition-none"
           href="#work"
-          whileHover={prefersReducedMotion ? undefined : { y: -1 }}
-          whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}
         >
           View my work <MdArrowOutward className="arrow-hover-icon inline-block size-3 align-[-2px]" direction="up-right" />
-        </motion.a>
-        <motion.a
+        </a>
+        <a
           className="inline-flex min-h-11 items-center text-muted transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 sm:min-h-0 motion-reduce:transition-none"
           href="#contact"
-          whileHover={prefersReducedMotion ? undefined : { y: -1 }}
-          whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}
         >
           Get in touch
-        </motion.a>
-      </motion.div>
-    </motion.section>
+        </a>
+      </div>
+    </section>
   )
 }
 
