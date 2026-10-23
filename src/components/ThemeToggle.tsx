@@ -12,7 +12,7 @@ function applyTheme(theme: Theme) {
   document.documentElement.style.colorScheme = theme
   document
     .querySelector<HTMLMetaElement>('meta[name="theme-color"]')
-    ?.setAttribute('content', theme === 'dark' ? '#191816' : '#F7F5F0')
+    ?.setAttribute('content', theme === 'dark' ? '#11100f' : '#F7F5F0')
 
   try {
     window.localStorage.setItem(themeStorageKey, theme)

@@ -72,7 +72,7 @@
 :root {
   color-scheme: light;
   --paper-light: #f7f5f0;
-  --paper-dark: #191816;
+  --paper-dark: #11100f;
   --paper: var(--paper-light);
   --ink-light: #191919;
   --ink-dark: #f2efe8;
@@ -81,10 +81,10 @@
   --muted-dark: #aaa69e;
   --muted: var(--muted-light);
   --rule-light: #dedbd4;
-  --rule-dark: #3b3933;
+  --rule-dark: #302e29;
   --rule: var(--rule-light);
   --surface-light: #fbfaf7;
-  --surface-dark: #22201c;
+  --surface-dark: #191816;
   --surface: var(--surface-light);
   --secondary-light: #625f59;
   --secondary-dark: #c5c0b6;
