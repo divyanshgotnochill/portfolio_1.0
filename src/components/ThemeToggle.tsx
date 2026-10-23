@@ -1,6 +1,7 @@
-import { AnimatePresence, motion, useAnimate, useReducedMotion } from 'motion/react'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { FiMoon, FiSun } from 'react-icons/fi'
 import { useRef, useState } from 'react'
+import { runPageBlurTransition } from '../motion'
 
 type Theme = 'light' | 'dark'
 
@@ -29,7 +30,6 @@ function ThemeToggle() {
   )
   const ThemeIcon = theme === 'dark' ? FiSun : FiMoon
   const isTransitioning = useRef(false)
-  const [, animate] = useAnimate()
 
   async function toggleTheme() {
     if (isTransitioning.current) return
@@ -50,18 +50,10 @@ function ThemeToggle() {
 
     isTransitioning.current = true
     try {
-      await animate(
-        page,
-        { filter: ['blur(0px)', 'blur(3.5px)'] },
-        { duration: 0.12, ease: 'easeOut' },
-      )
-      applyTheme(nextTheme)
-      setTheme(nextTheme)
-      await animate(
-        page,
-        { filter: ['blur(3.5px)', 'blur(0px)'] },
-        { duration: 0.3, ease: 'easeInOut' },
-      )
+      await runPageBlurTransition(page, () => {
+        applyTheme(nextTheme)
+        setTheme(nextTheme)
+      })
     } finally {
       page.style.removeProperty('filter')
       isTransitioning.current = false

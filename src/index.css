@@ -1,6 +1,32 @@
 @import "tailwindcss";
 @import "lenis/dist/lenis.css";
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--muted) 32%, transparent) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+*::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--muted) 32%, transparent);
+}
+
 @property --paper {
   syntax: "<color>";
   inherits: true;
@@ -85,7 +111,16 @@
   --color-secondary: var(--secondary);
   --color-underline: var(--underline);
   --font-editorial: Georgia, "Times New Roman", serif;
+  --font-blog-serif: "Instrument Serif", "Times New Roman", serif;
+  --font-blog-sans: "Geist", "Segoe UI", system-ui, sans-serif;
   --container-portfolio: 640px;
+}
+
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
 }
 
 [data-theme="dark"] {

@@ -40,7 +40,7 @@ function Hero() {
       <div className="mt-5 flex flex-wrap items-center gap-x-7 gap-y-4 text-[13px] font-medium">
         <a
           className="arrow-hover inline-flex min-h-11 items-center underline decoration-underline underline-offset-[5px] transition-colors hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-4 sm:min-h-0 motion-reduce:transition-none"
-          href="#work"
+          href="/work"
         >
           View my work <MdArrowOutward className="arrow-hover-icon inline-block size-3 align-[-2px]" direction="up-right" />
         </a>
